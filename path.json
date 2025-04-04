@@ -1,0 +1,42 @@
+{
+  "gui": {
+    "path": "C/",
+    "isAdmin": false
+  },
+  "league": {
+    "path": "\"C:\\Riot Games\\Riot Client\\RiotClientServices.exe\" --launch-product=league_of_legends --launch-patchline=live",
+    "isAdmin": false
+  },
+  "valorant": {
+    "path": "\"C:\\Riot Games\\Riot Client\\RiotClientServices.exe\" --launch-product=valorant --launch-patchline=live",
+    "isAdmin": false
+  },
+  "drg": {
+    "path": "\"F:\\Deep Rock Galactic\\Deep Rock Galactic\\FSD.exe\"",
+    "isAdmin": false
+  },
+  "ror2": {
+    "path": "\"F:\\Risk of Rain 2\\Risk of Rain 2.exe\"",
+    "isAdmin": false
+  },
+  "rdr2": {
+    "path": "\"F:\\Red Dead Redemption 2\\RDR2.exe\"",
+    "isAdmin": false
+  },
+  "DS3": {
+    "path": "F:\\Dark Souls 3\\Game\\DarkSoulsIII.exe",
+    "isAdmin": true
+  },
+  "fl": {
+    "path": "\"C:\\Program Files\\Image-Line\\FL Studio 21\\FL64.exe\"",
+    "isAdmin": false
+  },
+  "steam": {
+    "path": "\"F:\\Steam\\steam.exe\"",
+    "isAdmin": false
+  },
+  "fh5": {
+    "path": "\"F:\\Games\\Forza Horizon 5\\ForzaHorizon5.exe\"",
+    "isAdmin": true
+  }
+}
