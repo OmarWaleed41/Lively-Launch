@@ -1,0 +1,24 @@
+{
+  "name": "new-lively",
+  "version": "1.0.0",
+  "description": "blah",
+  "main": "server.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1",
+    "three": "^0.173.0",
+    "websocket": "^1.0.35",
+    "ws": "^8.18.1"
+  },
+  "scripts": {
+    "test": "npm run .",
+    ".": "node server.js",
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^35.0.0"
+  }
+}
