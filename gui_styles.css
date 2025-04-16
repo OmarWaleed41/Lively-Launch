@@ -1,0 +1,211 @@
+*{
+    margin: 0;
+}
+body{
+    background-color: rgb(27, 27, 27);
+}
+.container{
+    display: flex;
+}
+.nav{
+    display: flex;
+    flex-direction: column;
+    width: 5rem;
+    padding: 0.5rem;
+}
+.sep{
+    width: 0.2rem;
+    background-color: black;
+    height: 100dvh;
+}
+button{
+    border: none;
+    border-radius: 3rem;
+    min-height: 2rem;
+}
+.nav_button{
+    border: none;
+    background-color: rgb(61, 61, 61);
+    color: white;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+.button_select{
+    background-color: white;
+    color: black;
+    border: none;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+.main{
+    width: 100%;
+}
+
+.add{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin: 0.5rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    height: fit-content;
+    background-color: #2d2d2d;
+}
+.add .input{
+    width: 10rem;
+    background-color: rgba(245, 245, 220, 0.137);
+    border: none;
+    border-radius: 1rem;
+    height: 1.3rem;
+    padding: 0 0.5rem;
+    color: white;
+    font-size: large;
+    margin-bottom: 1rem;
+}
+.add label{
+    margin-bottom: 0.5rem;
+}
+
+/*---- this is for the input type file ----*/
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.custom-file-input::before {
+    content: 'Select An Image';
+    color: black;
+    display: inline-block;
+    background: white;
+    border-radius: 3rem;
+    padding: 0.3rem;
+    outline: none;
+    cursor: pointer;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+.custom-file-input:hover::before {
+    border-color: black;
+}
+.custom-file-input:active {
+    outline: 0;
+}
+.custom-file-input:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
+}
+/* ------------ */
+
+.remove{
+    border: 2px solid black;
+    border-radius: 1rem;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    margin: 1rem;
+    flex-wrap: wrap;
+    height: fit-content;
+    min-height: 10rem;
+}
+.remove div{
+    padding: 0.5rem;
+    display: flex;
+    width: fit-content;
+    margin: 0.5rem;
+    background-color: #2d2d2d;
+    border-radius: 1rem;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.remove img{
+    width: 5rem;
+    border-radius: 1rem;
+}
+.remove div p{
+    font-size: larger;
+    margin: 0.5rem;
+}
+
+.settings{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin: 1rem;
+    flex-wrap: wrap;
+    height: fit-content;
+    min-height: 10rem;
+}
+.settings div{
+    padding: 0.5rem;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin: 0.5rem;
+    background-color: #2d2d2d;
+    border-radius: 1rem;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.settings div input{
+    color: white;
+    background-color: rgba(245, 245, 220, 0.137);
+    margin: 0 1rem;
+    border-radius: 1rem;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+}
+.wallpaper{
+    width: 100%;
+    margin: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: #2d2d2d;
+    height: fit-content;
+    border-radius: 1rem;
+}
+.wallpaper label{
+    margin-bottom: 1rem;
+}
+.wallpaper button{
+    width: 10rem;
+}
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Adjust timing as needed */
+}
+.fade-in.show {
+    opacity: 1;
+}
+
+.widgets{
+    width: 100%;
+    margin: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: #2d2d2d;
+    height: fit-content;
+    border-radius: 1rem;
+}
+.widgets #widget_container{
+    display: flex;
+    margin: 1rem 0;
+}
+.widgets #widget_container div{
+    margin: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

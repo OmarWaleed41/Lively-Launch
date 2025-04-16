@@ -1,0 +1,8 @@
+{
+  "weather": {
+    "path": "/widgets/weather.js"
+  },
+  "clock": {
+    "path": "/widgets/digitalClock.js"
+  }
+}
