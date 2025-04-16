@@ -10,3 +10,9 @@ Use the `install.bat` file to install the node modules and add the server to the
 and finally add `index.html` to lively 
 
 If you wish to create your own Widget either let me know or you an take a look at the widgets like `weather.js` and you'll see the critical stuff and add your own
+
+![image](https://github.com/user-attachments/assets/ca70e92b-4af7-46b0-aca3-70f6f8ab38c6)
+
+and the gui ia pretty straight forward
+you can use the `Edit Mode` button to drag and snap your apps or icons on the desktop since we are using a grid system
+`Settings` tab is for the grid size you can drag on, if you set it tto your screen res it will free drag (smooth drag)
