@@ -20,7 +20,7 @@ window.addEventListener("storage", (event) => {
     }
 });
 
-//------------------------------------
+//----------------Getting the Edit Mode status--------------------
 
 const eventSource = new EventSource("http://localhost:3001/edit-mode-stream");
 
@@ -33,17 +33,15 @@ eventSource.onmessage = (event) => {
     }
 };
 
-
 //------------------------------------
 
 async function fetchData() {
     const response1 = await fetch(`http://localhost:3001/`);
     const data1 = await response1.json();
-    // console.log(data1);
-    // console.log(Object.entries(data1).length)
+
     const response2 = await fetch(`http://localhost:3001/position`);
     const data2 = await response2.json();
-    // console.log(data2);
+
     const response3 = await fetch(`http://localhost:3001/widgets`);
     const data3 = await response3.json();
     console.log(data3);
@@ -92,13 +90,10 @@ async function getEditMode() {
         const response = await fetch("http://localhost:3001/edit-mode");
         const data = await response.json();
         editMode = data.editMode;
-        // console.log("Edit mode fetched:", editMode); // Debugging
     } catch (e) {
         console.log(e);
     }
 }
-// getEditMode();
-// setInterval(getEditMode, 100);
 
 async function launch_app(game_name, cat) {
     console.log(`button pressed: ${game_name}`);
