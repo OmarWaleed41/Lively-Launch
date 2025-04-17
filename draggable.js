@@ -13,13 +13,13 @@ export async function getGridSize() {
 
     const send = await fetch("http://localhost:3001/loadSettings");
     const data = await send.json();
-    // console.log(data["grid"]);
+
 
     let screenWidth = window.innerWidth;
     let screenHeight = window.innerHeight;
     
-    let cols = data["grid"].col; // Adjust column count as needed
-    let rows = data["grid"].row;  // Adjust row count as needed
+    let cols = data["grid"].col;
+    let rows = data["grid"].row;
     
     return {
         x: Math.floor(screenWidth / cols),
