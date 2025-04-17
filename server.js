@@ -60,7 +60,6 @@ function loadPath() {
 function loadPos() {
   try {
     const data = fs.readFileSync(positionPath, 'utf-8');
-    // delete data['undefined'];
     return JSON.parse(data);
   } catch (error) {
     console.error('Error loading position.json:', error);
@@ -144,7 +143,7 @@ function writePos(newData) {
 
 function writeWidget(newData) {
   try {
-    const oldPath = newData.path; // e.g., widgets/3a25...
+    const oldPath = newData.path;
     const newFilePath = path.join(`${base_path}/widgets`, newData.originalname);
 
     fs.renameSync(oldPath, newFilePath);
@@ -229,7 +228,7 @@ app.post('/launch', (req, res) => {
     } else {
       let appPath = data[appName].path;
       console.log(appPath);
-      appPath = appPath.replace(/^"(.*)"$/, '$1'); // Remove surrounding quotes
+      appPath = appPath.replace(/^"(.*)"$/, '$1');
   
       const isAdmin = data[appName].isAdmin;
   
@@ -287,11 +286,8 @@ app.post('/addApp', upload.single('image'), (req, res) => {
     const appName = req.body.appName;
     const appPath = req.body.appPath;
     const isAdmin = req.body.isAdmin === 'true';
-  
-    // console.log("req.file before check:", req.file);
-  
+    
     if (req.file && appName && appName !== 'undefined') {
-      // console.log("req.file inside if:", req.file);
       writePath(appName, appPath, req.file, isAdmin);
       writePos({ [appName]: { x: 0, y: 0 } });
       res.json({ success: true });
@@ -334,7 +330,6 @@ app.post('/saveSettings', (req, res) => {
   res.json({ message: 'Settings saved successfully' });
 });
 
-let edit_mode = false;
 let currentEditMode = false;
 let clients = [];
 
@@ -357,7 +352,6 @@ app.get("/edit-mode-stream", (req, res) => {
     };
     clients.push(newClient);
 
-    // Send current value immediately
     res.write(`data: ${JSON.stringify({ editMode: currentEditMode })}\n\n`);
 
     req.on("close", () => {
@@ -365,10 +359,7 @@ app.get("/edit-mode-stream", (req, res) => {
     });
 });
 
-
 app.get('/widgets', (req,res) => {
-  // console.log('Widgets folder contains:', fs.readdirSync(`${base_path}/widgets`));
-
   res.json(loadWidgets());
 })
 
