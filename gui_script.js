@@ -1,11 +1,9 @@
 const add = document.getElementById('addApp');
-// const remove = document.getElementById('removeApp');
 const wallpaper = document.getElementById('wallpaper');
 const widgets = document.getElementById('widgets');
 const edit_button = document.getElementById('edit');
 const settings = document.getElementById('settings');
 const main = document.getElementById('main');
-// const main2 = document.getElementById('main2');
 
 const navButtons = [add, wallpaper, widgets ,edit_button, settings];
 
@@ -31,7 +29,6 @@ add.addEventListener('click', async () =>{
     console.log('add app');
     main.innerHTML = '';
     main.className = "add";
-    // main2.innerHTML = '';
 
     const Name = document.createElement('Label');
     const NameInput = document.createElement('input');
@@ -115,41 +112,44 @@ add.addEventListener('click', async () =>{
     
     let delay = 100;
     for (const [key, value] of Object.entries(data1)) {
-        const container = document.createElement('div');
-        container.classList.add('fade-in');
-        const img = document.createElement('img');
-        const text = document.createElement('p');
-        const button = document.createElement('button');
+        if(key != 'gui'){
+            const container = document.createElement('div');
+            container.classList.add('fade-in');
+            const img = document.createElement('img');
+            const text = document.createElement('p');
+            const button = document.createElement('button');
+            
+            img.src = `imgs/${key}.png`;
+            text.textContent = key;
+            text.style.color = "white";
+            button.textContent = "Remove";
+            container.appendChild(img);
+            container.appendChild(text);
+            container.appendChild(button);
+            removeApps.appendChild(container);
 
-        img.src = `imgs/${key}.png`;
-        text.textContent = key;
-        text.style.color = "white";
-        button.textContent = "Remove";
-        container.appendChild(img);
-        container.appendChild(text);
-        container.appendChild(button);
-        removeApps.appendChild(container);
+            setTimeout(() => {
+                container.classList.add('show');
+            }, delay);
+            delay += 100;
+            button.addEventListener('click', async () => {
+                const send = await fetch("http://localhost:3001/removeApp", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ key })
+                });
 
-        setTimeout(() => {
-            container.classList.add('show');
-        }, delay);
-        delay += 100;
-        button.addEventListener('click', async () => {
-            const send = await fetch("http://localhost:3001/removeApp", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ key })
-            });
+                const result = await send.json();
 
-            const result = await send.json();
-
-            if (result.success) {
-                console.log(`${key} removed successfully.`);
-                container.remove();
-            }
-        })
+                if (result.success) {
+                    console.log(`${key} removed successfully.`);
+                    container.remove();
+                }
+            
+            })
+        }
     }
 })
 
@@ -191,8 +191,7 @@ wallpaper.addEventListener('click', () =>{
 })
 edit_button.addEventListener("click", async () => {
     console.log("edit button");
-     // Get current state
-    isEditMode = !isEditMode; // Toggle it
+    isEditMode = !isEditMode;
 
     try {
         const send = await fetch("http://localhost:3001/edit-mode", {
@@ -309,10 +308,9 @@ widgets.addEventListener("click", async () => {
         if(input.files[0]['name'].search(".js") != -1){
             console.log(input.files[0]['name'].replace(".js", ""));
         }
-        // const positionData = { [NameInput.value]: { x: 0, y: 0 } };
         const formData = new FormData();
         formData.append("widget",input.files[0]);
-        console.log('File size:', input.files[0].size); // Check if file has content
+        console.log('File size:', input.files[0].size);
         const response2 = await fetch("http://localhost:3001/addWidget", {
             method: "POST",
             body: formData
