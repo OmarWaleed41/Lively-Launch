@@ -11,7 +11,8 @@ and finally add `index.html` to lively
 
 If you wish to create your own Widget either let me know or you an take a look at the widgets like `weather.js` and you'll see the critical stuff and add your own
 
-[img here]
+![image](https://github.com/user-attachments/assets/9d7c421c-ce31-4834-a8b2-f25f089b7487)
+
 
 and the gui ia pretty straight forward
 you can use the `Edit Mode` button to drag and snap your apps or icons on the desktop since we are using a grid system
